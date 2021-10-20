@@ -5,7 +5,7 @@ If there raises FileNotFoundError, please change the path of the dataset to abso
 
 ## Goal: Analysis of the most reviewed listings in different neighborhoods in NYC
 This app is used to analyze the characteristics (e.g., room types, neighborhood groups, nearby sightseeing spots, prices, good qualities) of the most-reviewed listings in different neighborhoods. Here we assume that the more reviews a listing received, the more visitors it took and the more popular it is.
-The dataset used is [New York City Airbnb Open Data] (https://www.kaggle.com/dgomonov/new-york-city-airbnb-open-data).
+The dataset used is [New York City Airbnb Open Data](https://www.kaggle.com/dgomonov/new-york-city-airbnb-open-data).
 
 ### Sidebar
 This sidebar includes:

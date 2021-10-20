@@ -1,3 +1,6 @@
+#### Extra libraries
+pip install plotly==5.3.1
+
 ## Goal: Analysis of the most reviewed listings in different neighborhoods
 This app is used to analyze the characteristics (e.g., room types, neighborhood groups, nearby sightseeing spots, prices, good qualities) of the most-reviewed listings in different neighborhoods. Here we assume that the more reviews a listing received, the more visitors it took and the more popular it is.
 

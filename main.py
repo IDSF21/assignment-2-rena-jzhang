@@ -4,12 +4,10 @@ import pandas as pd
 import pydeck as pdk
 from pydeck.types import String
 import plotly.figure_factory as ff
-# import streamlit_wordcloud as wordcloud
 from wordcloud import WordCloud, STOPWORDS
 import matplotlib.pyplot as plt
-# import altair as alt
 
-path = 'hw2/AB_NYC_2019.csv'
+path = 'assignment-2-rena-jzhang/AB_NYC_2019.csv'
 df = pd.read_csv(path)
 df['last_review'] = pd.to_datetime(df['last_review']).dt.date
 st.set_page_config(layout="wide")
@@ -17,13 +15,9 @@ st.title('Analysis of the most reviewed listings in neighborhoods in NYC')
 st.header('Table schema')
 st.write(df.head())
 
-color_exp = f"[R, G, B]"
-
-
-def print_region(nbh_data, lat, lon, n_colors, zoom=11):
+def print_region(nbh_data, lat, lon, percent, zoom=11):
     st.title('Exploring most-reviewed listings in ' + nbh_select)
-    # max_price = data['price'].max()
-    data = nbh_data.sort_values(['number_of_reviews'], ascending=False)[:int(len(nbh_data) * n_colors / 100)]
+    data = nbh_data.sort_values(['number_of_reviews'], ascending=False)[:int(len(nbh_data) * percent / 100)]
     figs = list(st.columns((1, 1, 1)))
     for id, type in enumerate(room_types):
         temp_data = data[data['room_type'] == type]
@@ -103,11 +97,11 @@ nbhs = df['neighbourhood'].unique()
 room_types = df['room_type'].unique()
 
 nbh_select = st.sidebar.selectbox('Choose neighborhood group', nbh_vals)
-n_colors = st.sidebar.slider("Choose the percentage of most-reviewed listings", min_value=1, max_value=100, value=30)
+percent = st.sidebar.slider("Choose the percentage of most-reviewed listings", min_value=1, max_value=100, value=30)
 # type_select = st.sidebar.selectbox('choose room type', room_types)
 
 selected_df = df[(df['neighbourhood_group'] == nbh_select)
     # & (df['room_type'] == type_select)
 ]
 mean_lat, mean_lon = np.mean(selected_df[['latitude', 'longitude']])
-print_region(selected_df, mean_lat, mean_lon, n_colors)
+print_region(selected_df, mean_lat, mean_lon, percent)

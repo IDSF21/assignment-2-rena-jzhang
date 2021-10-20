@@ -7,7 +7,7 @@ import plotly.figure_factory as ff
 from wordcloud import WordCloud, STOPWORDS
 import matplotlib.pyplot as plt
 
-path = 'assignment-2-rena-jzhang/AB_NYC_2019.csv'
+path = 'AB_NYC_2019.csv'
 df = pd.read_csv(path)
 df['last_review'] = pd.to_datetime(df['last_review']).dt.date
 st.set_page_config(layout="wide")

@@ -1,5 +1,6 @@
 #### Extra instructions
 pip install plotly==5.3.1
+
 If there raises FileNotFoundError, please change the path of the dataset to absolute path.
 
 ## Goal: Analysis of the most reviewed listings in different neighborhoods
